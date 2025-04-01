@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="TD MGS"
+run/main_scene="uid://bwimt10eywbid"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
