@@ -229,7 +229,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"death",
-"speed": 9.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -252,7 +252,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 7.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -281,7 +281,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk _down",
-"speed": 7.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -310,7 +310,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_side",
-"speed": 7.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -339,7 +339,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_up",
-"speed": 7.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sweqy"]
@@ -353,7 +353,7 @@ script = ExtResource("1_sweqy")
 position = Vector2(0, -19)
 sprite_frames = SubResource("SpriteFrames_sweqy")
 animation = &"idle"
-frame_progress = 0.689264
+frame_progress = 0.351978
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -16)
