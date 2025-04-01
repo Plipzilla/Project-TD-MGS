@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TD MGS"
-run/main_scene="uid://cw1ogntas7s08"
+run/main_scene="uid://c0kw63walvsfi"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
