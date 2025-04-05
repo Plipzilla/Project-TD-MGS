@@ -206,6 +206,136 @@ animations = [{
 "texture": ExtResource("41_im0bk")
 }],
 "loop": true,
+"name": &"run",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_ek17o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_sh2w1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_vetgs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_yu7ei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_dnwa6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_gjfy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_414gc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_dmk0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_tma4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_y8tq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_cxrqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_dbyqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_vqlui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_w5bhj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_q13gk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_n8wai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_46y3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_gnoo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_77mfd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_im0bk")
+}],
+"loop": true,
+"name": &"sneak",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_ek17o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_sh2w1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_vetgs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_yu7ei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_dnwa6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_gjfy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_414gc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_dmk0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_tma4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_y8tq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_cxrqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_dbyqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_vqlui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_w5bhj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_q13gk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_n8wai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_46y3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_gnoo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_77mfd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_im0bk")
+}],
+"loop": true,
 "name": &"walk",
 "speed": 15.0
 }]
@@ -219,9 +349,7 @@ script = ExtResource("1_mvgw4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, 0)
 sprite_frames = SubResource("SpriteFrames_vwsdk")
-animation = &"crouch"
-frame = 4
-frame_progress = 0.836315
+animation = &"sneak"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mvgw4")

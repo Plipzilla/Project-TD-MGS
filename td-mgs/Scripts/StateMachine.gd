@@ -5,12 +5,11 @@ class_name PlayerCharacter
 @export var running_speed := 500
 @export var slow_walk_speed := 100
 @export var crouch_speed := 70
-var movement_speed
 
+var movement_speed
 var is_running := 		false
 var is_crouching := 	false
 var is_slow_walking := 	false
-
 var input_vector := Vector2.ZERO
 
 enum State { 
@@ -20,9 +19,9 @@ enum State {
 	CROUCHING,
 	RUNNING
 	 }
-
 var current_state: State = State.IDLE
 var states_map := {}
+
 
 func _ready():
 	states_map = {
@@ -35,26 +34,28 @@ func _ready():
 	change_state(State.IDLE)
 	movement_speed = normal_speed
 
+
 func _physics_process(delta: float) -> void:
 	handle_input()
 	update_state()
 	states_map[current_state].update(self, delta)
-	
 	update_animation()
 	rotate_sprite()
 
+
 func handle_input():
 	input_vector = Vector2.ZERO
+	input_vector = input_vector.normalized()
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	input_vector = input_vector.normalized()
 	
-	if Input.is_action_just_pressed("crouch"):
-		is_crouching = !is_crouching
-		update_state()
-	
 	is_slow_walking = Input.is_action_pressed("slow_walking")
 	if Input.is_action_just_released("slow_walking"):
+		update_state()
+
+	if Input.is_action_just_pressed("crouch"):
+		is_crouching = !is_crouching
 		update_state()
 
 	if Input.is_action_just_pressed("sprint"):
@@ -62,8 +63,8 @@ func handle_input():
 			is_running = true
 		else:
 			is_running = false
-	
-	
+
+
 func update_state():
 	if is_crouching || is_slow_walking:
 		is_running = false
@@ -71,22 +72,23 @@ func update_state():
 	if input_vector.length() > 0:
 		if is_crouching:
 			change_state(State.CROUCHING)
-			
+
 		elif is_slow_walking:
 			change_state(State.SLOW_WALKING)
-		
+
 		elif is_running:
 			change_state(State.RUNNING)
-			
+
 		else:
 			change_state(State.WALKING)
-		
+
 	else:
 		is_running = false
 		if is_crouching:
 			change_state(State.CROUCHING)	
 		else:
 			change_state(State.IDLE)
+
 
 func change_state(new_state: State):
 	if new_state == current_state:
@@ -107,16 +109,17 @@ func update_animation():
 		anim.play("crouch")
 	
 	elif current_state == State.RUNNING:
-		anim.play("crouch") #we'll eventually add animations here
+		anim.play("run")
 	
 	elif current_state == State.SLOW_WALKING:
-		pass #we'll eventually add animations here too
+		anim.play("sneak")
 		
 	elif input_vector.length() > 0.1:
-			anim.play("walk")
+		anim.play("walk")
 				
 	else:
 		anim.play("idle")
+
 
 func rotate_sprite():
 	if input_vector.length() > 0.1:
