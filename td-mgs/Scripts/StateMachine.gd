@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name PlayerCharacter 
 
 @export var normal_speed := 200
-@export var running_speed := 500
+@export var running_speed := 550
 @export var slow_walk_speed := 100
 @export var crouch_speed := 70
 

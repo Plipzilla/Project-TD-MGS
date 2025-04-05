@@ -3,7 +3,7 @@ extends BaseState
 func enter(character: CharacterBody2D):
 	character.movement_speed = character.running_speed
 
-func update(character: CharacterBody2D, delta: float):
+func update(character: CharacterBody2D, _delta: float):
 	if character.input_vector.length() == 0:
 		character.is_running = false  # This ensures sprint is properly disabled
 		character.change_state(PlayerCharacter.State.IDLE)

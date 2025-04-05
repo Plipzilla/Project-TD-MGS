@@ -14,6 +14,11 @@ config/name="TD MGS"
 run/main_scene="uid://ccp0uhc2g5vx2"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+
 [file_customization]
 
 folder_colors={
