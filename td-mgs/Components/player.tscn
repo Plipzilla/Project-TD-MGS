@@ -1,12 +1,18 @@
-[gd_scene load_steps=47 format=3 uid="uid://oisvchcegjpe"]
+[gd_scene load_steps=55 format=3 uid="uid://oisvchcegjpe"]
 
 [ext_resource type="Script" uid="uid://djn7o3wr2wnbn" path="res://Scripts/BaseState.gd" id="1_ibgny"]
 [ext_resource type="Script" uid="uid://ctcw7vi7g8xch" path="res://Scripts/StateMachine.gd" id="1_mvgw4"]
 [ext_resource type="Texture2D" uid="uid://cr6eilat0m607" path="res://Assets/Top_Down_Survivor/knife/idle/survivor-idle_knife_0.png" id="2_11um6"]
+[ext_resource type="Texture2D" uid="uid://bcdd2y1vl53g1" path="res://Assets/Top_Down_Survivor/flashlight/meleeattack/survivor-meleeattack_flashlight_0.png" id="2_dscmj"]
+[ext_resource type="Texture2D" uid="uid://bkerdomk2p62n" path="res://Assets/Top_Down_Survivor/flashlight/meleeattack/survivor-meleeattack_flashlight_1.png" id="3_rcjp6"]
 [ext_resource type="Texture2D" uid="uid://db3e3hn3t6gwm" path="res://Assets/Top_Down_Survivor/knife/idle/survivor-idle_knife_1.png" id="3_vymyb"]
+[ext_resource type="Texture2D" uid="uid://75shwfal2hwr" path="res://Assets/Top_Down_Survivor/flashlight/meleeattack/survivor-meleeattack_flashlight_2.png" id="4_6pxb0"]
 [ext_resource type="Texture2D" uid="uid://d13xxxxwyrmbo" path="res://Assets/Top_Down_Survivor/knife/idle/survivor-idle_knife_2.png" id="4_ibgny"]
 [ext_resource type="Texture2D" uid="uid://dkhrddsgtreju" path="res://Assets/Top_Down_Survivor/knife/idle/survivor-idle_knife_3.png" id="5_gg12g"]
+[ext_resource type="Texture2D" uid="uid://b3bkksjlk3mn3" path="res://Assets/Top_Down_Survivor/flashlight/meleeattack/survivor-meleeattack_flashlight_3.png" id="5_ut4oe"]
+[ext_resource type="Texture2D" uid="uid://dy1j8eeu6002a" path="res://Assets/Top_Down_Survivor/flashlight/meleeattack/survivor-meleeattack_flashlight_4.png" id="6_pgk1m"]
 [ext_resource type="Texture2D" uid="uid://clc8vlb11cxng" path="res://Assets/Top_Down_Survivor/knife/idle/survivor-idle_knife_4.png" id="6_xjnbr"]
+[ext_resource type="Texture2D" uid="uid://wr8iff60x0p8" path="res://Assets/Top_Down_Survivor/flashlight/meleeattack/survivor-meleeattack_flashlight_5.png" id="7_tq60r"]
 [ext_resource type="Texture2D" uid="uid://cpysu8wfobv2l" path="res://Assets/Top_Down_Survivor/knife/idle/survivor-idle_knife_5.png" id="7_y6eef"]
 [ext_resource type="Texture2D" uid="uid://dgjtnl5ujh05l" path="res://Assets/Top_Down_Survivor/knife/idle/survivor-idle_knife_6.png" id="8_vpavn"]
 [ext_resource type="Texture2D" uid="uid://d2ead2txumbnd" path="res://Assets/Top_Down_Survivor/knife/idle/survivor-idle_knife_7.png" id="9_7j4h5"]
@@ -44,9 +50,34 @@
 [ext_resource type="Texture2D" uid="uid://xqkadg7t7ij5" path="res://Assets/Top_Down_Survivor/knife/moveHorizontal/survivor-move_knife_19.png" id="41_im0bk"]
 [ext_resource type="Script" uid="uid://d4i31mc2l03ng" path="res://Scripts/IdleState.gd" id="42_vymyb"]
 [ext_resource type="Script" uid="uid://44ycbk6togq2" path="res://Scripts/WalkingState.gd" id="43_ibgny"]
+[ext_resource type="Script" uid="uid://bn1emk0dhuaxs" path="res://CrouchingState.gd" id="45_gg12g"]
+[ext_resource type="Script" uid="uid://bd1jxw823oqyp" path="res://slow_walking_state.gd" id="46_xjnbr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vwsdk"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dscmj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rcjp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6pxb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ut4oe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pgk1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tq60r")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 15.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_11um6")
@@ -187,8 +218,9 @@ script = ExtResource("1_mvgw4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, 0)
 sprite_frames = SubResource("SpriteFrames_vwsdk")
-animation = &"idle"
-frame_progress = 0.480672
+animation = &"crouch"
+frame = 4
+frame_progress = 0.836315
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mvgw4")
@@ -201,3 +233,9 @@ script = ExtResource("42_vymyb")
 
 [node name="walking_state" type="Node" parent="States"]
 script = ExtResource("43_ibgny")
+
+[node name="crouching_state" type="Node" parent="States"]
+script = ExtResource("45_gg12g")
+
+[node name="sneak_state" type="Node" parent="States"]
+script = ExtResource("46_xjnbr")
