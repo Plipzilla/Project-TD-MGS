@@ -215,6 +215,10 @@ radius = 98.2497
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_mvgw4")
+normal_speed = null
+running_speed = null
+slow_walk_speed = null
+crouch_speed = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, 0)
