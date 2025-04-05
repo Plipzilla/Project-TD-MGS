@@ -11,9 +11,16 @@ config_version=5
 [application]
 
 config/name="TD MGS"
-run/main_scene="uid://cw1ogntas7s08"
+run/main_scene="uid://ccp0uhc2g5vx2"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "orange",
+"res://Components/": "green",
+"res://Scripts/": "blue"
+}
 
 [input]
 
