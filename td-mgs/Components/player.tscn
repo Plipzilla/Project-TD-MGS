@@ -1,7 +1,7 @@
 [gd_scene load_steps=56 format=3 uid="uid://oisvchcegjpe"]
 
-[ext_resource type="Script" uid="uid://djn7o3wr2wnbn" path="res://Scripts/BaseState.gd" id="1_ibgny"]
-[ext_resource type="Script" uid="uid://ctcw7vi7g8xch" path="res://Scripts/StateMachine.gd" id="1_mvgw4"]
+[ext_resource type="Script" uid="uid://djn7o3wr2wnbn" path="res://scripts/core/base_state.gd" id="1_ibgny"]
+[ext_resource type="Script" uid="uid://ctcw7vi7g8xch" path="res://scripts/player/player_state_machine.gd" id="1_mvgw4"]
 [ext_resource type="Texture2D" uid="uid://cr6eilat0m607" path="res://Assets/Top_Down_Survivor/knife/idle/survivor-idle_knife_0.png" id="2_11um6"]
 [ext_resource type="Texture2D" uid="uid://bcdd2y1vl53g1" path="res://Assets/Top_Down_Survivor/flashlight/meleeattack/survivor-meleeattack_flashlight_0.png" id="2_dscmj"]
 [ext_resource type="Texture2D" uid="uid://bkerdomk2p62n" path="res://Assets/Top_Down_Survivor/flashlight/meleeattack/survivor-meleeattack_flashlight_1.png" id="3_rcjp6"]
@@ -48,11 +48,11 @@
 [ext_resource type="Texture2D" uid="uid://cucy3xvx1hyt1" path="res://Assets/Top_Down_Survivor/knife/moveHorizontal/survivor-move_knife_17.png" id="39_gnoo1"]
 [ext_resource type="Texture2D" uid="uid://dws01mxbo5a8o" path="res://Assets/Top_Down_Survivor/knife/moveHorizontal/survivor-move_knife_18.png" id="40_77mfd"]
 [ext_resource type="Texture2D" uid="uid://xqkadg7t7ij5" path="res://Assets/Top_Down_Survivor/knife/moveHorizontal/survivor-move_knife_19.png" id="41_im0bk"]
-[ext_resource type="Script" uid="uid://d4i31mc2l03ng" path="res://Scripts/IdleState.gd" id="42_vymyb"]
-[ext_resource type="Script" uid="uid://44ycbk6togq2" path="res://Scripts/WalkingState.gd" id="43_ibgny"]
-[ext_resource type="Script" uid="uid://bn1emk0dhuaxs" path="res://Scripts/CrouchingState.gd" id="45_gg12g"]
-[ext_resource type="Script" uid="uid://bd1jxw823oqyp" path="res://Scripts/slow_walking_state.gd" id="46_xjnbr"]
-[ext_resource type="Script" uid="uid://ccemecwidje8a" path="res://Scripts/RunningState.gd" id="53_rcjp6"]
+[ext_resource type="Script" uid="uid://d4i31mc2l03ng" path="res://scripts/player/states/idle_state.gd" id="42_vymyb"]
+[ext_resource type="Script" uid="uid://44ycbk6togq2" path="res://scripts/player/states/walking_state.gd" id="43_ibgny"]
+[ext_resource type="Script" uid="uid://bn1emk0dhuaxs" path="res://scripts/player/states/crouching_state.gd" id="45_gg12g"]
+[ext_resource type="Script" uid="uid://bd1jxw823oqyp" path="res://scripts/player/states/slow_walking_state.gd" id="46_xjnbr"]
+[ext_resource type="Script" uid="uid://ccemecwidje8a" path="res://scripts/player/states/running_state.gd" id="53_rcjp6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vwsdk"]
 animations = [{
