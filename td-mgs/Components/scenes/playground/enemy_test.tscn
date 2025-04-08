@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://cacxn4xs6k1ts"]
+[gd_scene load_steps=3 format=3 uid="uid://cacxn4xs6k1ts"]
 
 [ext_resource type="PackedScene" uid="uid://chxbwfgxb2ca2" path="res://Components/characters/enemy/officer/officer.tscn" id="1_qrqri"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qrqri"]
+vertices = PackedVector2Array(1104.16, -787.031, 756.789, -879.859, 856.383, -1014.13, 1277.83, -944.211, 1442.85, -798.133, 1885.61, -765.742, 1733.19, -523.008, 2089.28, -280.313, 1920.21, -139.867, 2202.48, 507.109, 1891.44, 173.508, -1458.31, -370.688, -1424.46, 489.297, -1611.47, 461.023, -1813.49, -138.133, -1640.54, -699.703, 1659.99, 286.648, 1744.87, 1073.43, 1105.85, 1132.96, 1208.64, 161.891, -62.4922, 1056.07, 332.852, -142.891, 676.469, -204.563, 1033.92, -23.8672, -7.84375, 349.109, -825.102, 869.391, -317.727, 342.781, -276.828, -226.758, -1442.64, -374.688, -398.383, -1164.12, -1438.34, -1203.74, -96.3984, -577.563, -15.3984, -889.859)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 3, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(8, 6, 7), PackedInt32Array(8, 7, 9, 10), PackedInt32Array(11, 12, 13, 14, 15), PackedInt32Array(16, 10, 9, 17, 18), PackedInt32Array(19, 16, 18, 20), PackedInt32Array(21, 22, 23, 19, 20, 24), PackedInt32Array(24, 20, 25, 26), PackedInt32Array(27, 26, 25, 28, 29), PackedInt32Array(29, 28, 11, 15, 30), PackedInt32Array(31, 27, 29, 32)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1448, -363, -832, 878, -64, 1066, 1106, 1143, 1750, 1083, 2213, 510, 2099, -283, 1893, -774, 1280, -954, 852, -1025, 740, -874, 1103, -777, 1439, -788, 1725, -517, 1910, -138, 1882, 167, 1659, 276, 1214, 153, 1040, -32, 678, -215, 327, -152, -13, 339, -307, 333, -267, -224, -87, -574, -4, -894, -395, -1174, -1445, -1214, -1650, -703, -1824, -138, -1619, 470, -1414, 501)])
+
 [node name="EnemyTest" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="player" parent="." instance=ExtResource("1_qrqri")]
 position = Vector2(618, 279)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_qrqri")

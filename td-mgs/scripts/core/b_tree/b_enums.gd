@@ -5,9 +5,3 @@ enum NodeStatus {
 	FAILURE,
 	RUNNING
 }
-
-enum ActionType {
-	ATTACK,
-	CHASE,
-	PATROL,
-}
