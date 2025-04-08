@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cacxn4xs6k1ts"]
+
+[ext_resource type="PackedScene" uid="uid://chxbwfgxb2ca2" path="res://Components/characters/enemy/officer/officer.tscn" id="1_qrqri"]
+
+[node name="EnemyTest" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_qrqri")]
+position = Vector2(618, 279)
