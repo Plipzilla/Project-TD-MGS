@@ -13,17 +13,18 @@ const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 var direction: Vector2 = Vector2.ZERO
 var cardinal_direction: Vector2 = Vector2.DOWN
 
+var angle_cone_of_vision: float = deg_to_rad(45.0)
+var max_view_distance: float = 800.0
+var angle_between_rays: float = deg_to_rad(5.0)
+
 var behavior_tree: BehaviorNode
 
 func _ready():
 	state_machine.initialize(self)
-	behavior_tree = create_behavior_tree()
-
-func _process(_delta):
-	behavior_tree.tick()
+	generate_raycasts()
 
 func _physics_process(delta):
-	var  dir = Vector3()
+	var dir = Vector3()
 	nav.target_position = get_global_mouse_position()
 	dir = nav.get_next_path_position() - global_position
 	dir = dir.normalized()
@@ -33,48 +34,17 @@ func _physics_process(delta):
 	move_and_slide()
 	rotation = dir.angle()
 
-func create_behavior_tree() -> BehaviorNode:
-	# Create root selector
-	var root = SelectorNode.new()
-	
-	# Attack sequence: if player visible AND in range, then attack
-	var attack_sequence = SequenceNode.new()
-	attack_sequence.add_child(EnemyConditionNode.new(EnemyEnums.ConditionType.IS_PLAYER_VISIBLE))
-	attack_sequence.add_child(EnemyConditionNode.new(EnemyEnums.ConditionType.IS_PLAYER_IN_RANGE))
-	attack_sequence.add_child(EnemyActionNode.new(EnemyEnums.ActionType.ATTACK, self))
-	
-	# Chase sequence: if player visible, then chase
-	var chase_sequence = SequenceNode.new()
-	chase_sequence.add_child(EnemyConditionNode.new(EnemyEnums.ConditionType.IS_PLAYER_VISIBLE))
-	chase_sequence.add_child(EnemyActionNode.new(EnemyEnums.ActionType.CHASE, self))
-	
-	# Patrol action: fallback behavior
-	var patrol_action = EnemyActionNode.new(EnemyEnums.ActionType.PATROL, self)
-	
-	# Add all behaviors to root selector
-	root.add_child(attack_sequence)
-	root.add_child(chase_sequence)
-	root.add_child(patrol_action)
-	
-	return root
+	for ray in get_children():
+		if ray is RayCast2D:
+			ray.force_raycast_update()
+			if ray.is_colliding() and ray.get_collider() is PlayerCharacter:
+				print("Player detected!")
+			else:
+				print("No player detected.")
 
 func update_animation(state: String) -> void:
 	animation_player.play(state)
 	pass
-
-func rotate_character(direction: Vector2, delta: float) -> void:
-	if direction != Vector2.ZERO:
-		# Calculate the target rotation angle based on direction
-		var target_angle = direction.angle()
-		
-		# Get the current rotation angle
-		var current_angle = rotation
-		
-		# Find the shortest angle to rotate
-		var angle_diff = wrapf(target_angle - current_angle, -PI, PI)
-		
-		# Apply smooth rotation
-		rotation += angle_diff * rotation_speed * delta
 
 func set_direction(_new_direction: Vector2) -> bool:
 	direction = _new_direction
@@ -93,6 +63,13 @@ func set_direction(_new_direction: Vector2) -> bool:
 	cardinal_direction = new_dir
 	return true
 
+func generate_raycasts():
+	var ray_count = int(angle_cone_of_vision / angle_between_rays)
+	for i in range(ray_count):
+		var ray = RayCast2D.new()
+		var angle: float = angle_between_rays * (i - ray_count / 2.0)
+		ray.target_position = Vector2.UP.rotated(angle) * max_view_distance
+		add_child(ray)
 
 func enemy_patroling():
 	state_machine.change_state(wandering)
