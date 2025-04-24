@@ -1,8 +1,8 @@
 class_name EnemyState extends Node
 
 
-## Stores a reference to the enemy that this state belongs to
-var enemy : EnemyController
+## Stores a reference to the actor that this state belongs to
+var actor : EnemyController
 var state_machine : EnemyStateMachine
 
 
@@ -11,12 +11,12 @@ func init() -> void:
 	pass
 
 
-## What happens when the enemy enters this State?
+## What happens when the actor enters this State?
 func enter() -> void:
 	pass
 
 
-## What happens when the enemy exits this State?
+## What happens when the actor exits this State?
 func exit() -> void:
 	pass
 

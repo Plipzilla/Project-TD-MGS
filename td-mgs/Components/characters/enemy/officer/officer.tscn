@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bgahl7y1jmf8c" path="res://Assets/officer/officer_walk_strip.png" id="2_1jmpa"]
 [ext_resource type="Script" uid="uid://tya0nugjeymb" path="res://scripts/characters/enemy/enemy_state_machine.gd" id="48_w5u2j"]
 [ext_resource type="Script" uid="uid://bnu22dp52e2q3" path="res://scripts/characters/enemy/states/idle_state.gd" id="49_h085r"]
-[ext_resource type="Script" uid="uid://ca8oulfv1565w" path="res://scripts/characters/enemy/states/wandering_state.gd" id="50_x3lcr"]
+[ext_resource type="Script" uid="uid://ca8oulfv1565w" path="res://scripts/characters/enemy/states/patrolling_state.gd" id="50_x3lcr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mvgw4"]
 radius = 98.2497
@@ -83,10 +83,10 @@ libraries = {
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("48_w5u2j")
 
-[node name="wandering" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+[node name="patrolling" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("50_x3lcr")
 next_state = NodePath("../idle")
 
 [node name="idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
 script = ExtResource("49_h085r")
-after_idle_state = NodePath("../wandering")
+after_idle_state = NodePath("../patrolling")

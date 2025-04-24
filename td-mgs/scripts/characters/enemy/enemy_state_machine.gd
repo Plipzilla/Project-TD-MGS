@@ -32,13 +32,13 @@ func initialize( _enemy : EnemyController ) -> void:
 			states.append( c )
 	
 	for s in states:
-		s.enemy = _enemy
+		s.actor = _enemy
 		s.state_machine = self
 		s.init()
 	
-	#if states.size() > 0:
-		#change_state( states[0] )
-		#process_mode = Node.PROCESS_MODE_INHERIT
+	if states.size() > 0:
+		change_state( states[0] )
+		process_mode = Node.PROCESS_MODE_INHERIT
 	pass
 
 
