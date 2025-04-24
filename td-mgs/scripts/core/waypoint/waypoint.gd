@@ -6,4 +6,4 @@ enum PatrolOpcode {END_OF_SECTION, FACE, GOTO, WAIT}
 signal navigation_requested(next_patrol_point: WayPointOp, next_section: int)
 
 func _ready() -> void:
-    set_physics_process(false)
+	set_physics_process(false)

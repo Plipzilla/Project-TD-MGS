@@ -14,6 +14,7 @@ class_name PatrollingState extends EnemyState
 var path: Dictionary = {}
 var _waypoint: WayPoint = null
 var _action_index = 0
+var _waited_time: float = 0.0
 
 func enter() -> void:
 	set_waypoint(actor._main_waypoint)
@@ -66,12 +67,25 @@ func _handle_waypoint_actions(_delta: float):
 	var action = _waypoint.actions[_action_index]
 
 	match action.op:
+		WayPoint.PatrolOpcode.END_OF_SECTION:
+			_action_index = 0
+			_waypoint = actor._main_waypoint
 		WayPoint.PatrolOpcode.GOTO:
 			if action.go_to_dest != "":
 				var go_to = path.get(action.go_to_dest)
-				print(action.go_to_dest," ", go_to)
+				print(action.go_to_dest, " ", go_to)
 				_waypoint = go_to
 				_action_index = 0
 				return
 			_action_index += 1
+		WayPoint.PatrolOpcode.WAIT:
+			_waited_time += _delta;
+
+			if _waited_time >= action.duration:
+				_waited_time = 0
+				_action_index += 1
+		WayPoint.PatrolOpcode.FACE:
+			actor.turn_to_look_at(action.convert_direction())
+			_action_index += 1
+			pass
 	return

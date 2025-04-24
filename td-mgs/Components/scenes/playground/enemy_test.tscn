@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cacxn4xs6k1ts"]
+[gd_scene load_steps=42 format=3 uid="uid://cacxn4xs6k1ts"]
 
 [ext_resource type="PackedScene" uid="uid://chxbwfgxb2ca2" path="res://Components/characters/enemy/officer/officer.tscn" id="1_qrqri"]
 [ext_resource type="Texture2D" uid="uid://dlmeh6ejth6v7" path="res://Assets/Variety Pack/Walls/Wall-Metal_04-64x64.png" id="2_40pi8"]
@@ -460,43 +460,89 @@ sources/0 = SubResource("TileSetAtlasSource_wtikj")
 [sub_resource type="Resource" id="Resource_2uubv"]
 script = ExtResource("12_2uubv")
 op = 2
-direction = ""
+direction = 0
 go_to_dest = "Waypoint2"
+duration = 0.0
+metadata/_custom_type_script = "uid://6yla2hmj1qh3"
+
+[sub_resource type="Resource" id="Resource_rgv87"]
+script = ExtResource("12_2uubv")
+op = 3
+direction = 0
+go_to_dest = ""
+duration = 2.0
+metadata/_custom_type_script = "uid://6yla2hmj1qh3"
+
+[sub_resource type="Resource" id="Resource_jd757"]
+script = ExtResource("12_2uubv")
+op = 1
+direction = 1
+go_to_dest = ""
+duration = 0.0
+metadata/_custom_type_script = "uid://6yla2hmj1qh3"
+
+[sub_resource type="Resource" id="Resource_6ykpj"]
+script = ExtResource("12_2uubv")
+op = 3
+direction = 0
+go_to_dest = ""
+duration = 2.0
+metadata/_custom_type_script = "uid://6yla2hmj1qh3"
+
+[sub_resource type="Resource" id="Resource_pt1t0"]
+script = ExtResource("12_2uubv")
+op = 1
+direction = 2
+go_to_dest = ""
+duration = 0.0
+metadata/_custom_type_script = "uid://6yla2hmj1qh3"
+
+[sub_resource type="Resource" id="Resource_f65hw"]
+script = ExtResource("12_2uubv")
+op = 3
+direction = 0
+go_to_dest = ""
+duration = 2.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
 [sub_resource type="Resource" id="Resource_5tquh"]
 script = ExtResource("12_2uubv")
 op = 2
-direction = ""
+direction = 0
 go_to_dest = "Waypoint3"
+duration = 0.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
 [sub_resource type="Resource" id="Resource_fuvst"]
 script = ExtResource("12_2uubv")
 op = 2
-direction = ""
+direction = 0
 go_to_dest = "Waypoint4"
+duration = 0.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
 [sub_resource type="Resource" id="Resource_b7omw"]
 script = ExtResource("12_2uubv")
 op = 2
-direction = ""
+direction = 0
 go_to_dest = "Waypoint5"
+duration = 0.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
 [sub_resource type="Resource" id="Resource_qgjol"]
 script = ExtResource("12_2uubv")
 op = 2
-direction = ""
+direction = 0
 go_to_dest = "Waypoint6"
+duration = 0.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
 [sub_resource type="Resource" id="Resource_v351f"]
 script = ExtResource("12_2uubv")
 op = 0
-direction = ""
+direction = 0
 go_to_dest = ""
+duration = 0.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
 [node name="EnemyTest" type="Node2D"]
@@ -574,7 +620,7 @@ actions = Array[ExtResource("12_2uubv")]([SubResource("Resource_2uubv")])
 
 [node name="Waypoint2" parent="PathrolPaths/Path1" instance=ExtResource("11_mii4f")]
 position = Vector2(-15, -676)
-actions = Array[ExtResource("12_2uubv")]([SubResource("Resource_5tquh")])
+actions = Array[ExtResource("12_2uubv")]([SubResource("Resource_rgv87"), SubResource("Resource_jd757"), SubResource("Resource_6ykpj"), SubResource("Resource_pt1t0"), SubResource("Resource_f65hw"), SubResource("Resource_5tquh")])
 
 [node name="Waypoint3" parent="PathrolPaths/Path1" instance=ExtResource("11_mii4f")]
 position = Vector2(529, -649)
