@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://chxbwfgxb2ca2"]
+[gd_scene load_steps=13 format=3 uid="uid://chxbwfgxb2ca2"]
 
 [ext_resource type="Script" uid="uid://7qb8pt6owug6" path="res://scripts/characters/enemy/enemy_controller.gd" id="1_ytvgn"]
 [ext_resource type="Texture2D" uid="uid://bgahl7y1jmf8c" path="res://Assets/officer/officer_walk_strip.png" id="2_1jmpa"]
+[ext_resource type="Script" uid="uid://dgqd0kjfmt8l4" path="res://scripts/characters/enemy/states/chasing_state.gd" id="6_br6yd"]
+[ext_resource type="Script" uid="uid://diugiphqko1gn" path="res://scripts/characters/enemy/states/searching_state.gd" id="7_q7km5"]
 [ext_resource type="Script" uid="uid://tya0nugjeymb" path="res://scripts/characters/enemy/enemy_state_machine.gd" id="48_w5u2j"]
 [ext_resource type="Script" uid="uid://bnu22dp52e2q3" path="res://scripts/characters/enemy/states/idle_state.gd" id="49_h085r"]
 [ext_resource type="Script" uid="uid://ca8oulfv1565w" path="res://scripts/characters/enemy/states/patrolling_state.gd" id="50_x3lcr"]
@@ -90,3 +92,11 @@ next_state = NodePath("../idle")
 [node name="idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
 script = ExtResource("49_h085r")
 after_idle_state = NodePath("../patrolling")
+
+[node name="chasing" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("6_br6yd")
+metadata/_custom_type_script = "uid://dgqd0kjfmt8l4"
+
+[node name="searching" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("7_q7km5")
+metadata/_custom_type_script = "uid://diugiphqko1gn"
