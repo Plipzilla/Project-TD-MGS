@@ -14,8 +14,9 @@
 [ext_resource type="Script" uid="uid://6yla2hmj1qh3" path="res://scripts/core/waypoint/waypoint_operation.gd" id="12_2uubv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qrqri"]
-vertices = PackedVector2Array(775.461, 116.461, 902.531, 198.367, 577.641, 180.859, 546.82, -51, 818.922, -46.4922, 142.859, 256.508, 109.133, 246.438, 49, -51.8984, 108.461, 262.547, -11.5313, 245.547, -10.0234, -53.25, 1208.98, 729.961, 1232.42, 1167.61, 320.773, 1134.35, 313.773, 837.102, 1029.41, 704.922, 528.531, 657.297, 943, 638.688, 943, 660.078, 1210.16, 710.648, -396.898, 829.898, -399.891, 1133.68, -818.961, 1120.31, -817.023, 527.156, -702.07, 503.578, 49, -60.7891, -1210.08, -1026, 632.797, -1026, 624.188, -585.961, 122.25, -583.961, -324, -260.906, -1215.92, -269.891, 118.75, -444, 792.773, -705.773, 1397.19, -692.211, 1405.79, -266.867, 1157.79, -263.906, 786.773, -444, -14.5703, 317.844, -705.188, 307.141, -713.797, -110.68, -310.953, -138.75, 1131.81, -186.977, 2.9375, -183.977, 497.633, 225.789, 465.773, 510.508, 149.211, 588.922, 3.39844, 576.289, -685.477, 446.039, -17.4922, 449.953, 1037.39, 225.68, 980.898, -50.5781, 1908.92, -3.49219, 1903.08, 712.68, 1236.66, 605.508, 963, 617.781, 963, 221.656, 1231.38, 691.32)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 0, 2, 5, 6, 7), PackedInt32Array(7, 6, 8, 9, 10), PackedInt32Array(11, 12, 13, 14, 15), PackedInt32Array(16, 17, 18, 14), PackedInt32Array(15, 19, 11), PackedInt32Array(18, 15, 14), PackedInt32Array(20, 21, 22, 23, 24), PackedInt32Array(7, 25, 3), PackedInt32Array(26, 27, 28, 29), PackedInt32Array(30, 31, 26, 29, 32), PackedInt32Array(33, 34, 35, 36, 37), PackedInt32Array(9, 38, 39, 40, 41, 10), PackedInt32Array(32, 37, 36, 42, 43, 30), PackedInt32Array(41, 30, 43, 10), PackedInt32Array(5, 2, 44), PackedInt32Array(5, 44, 45, 46), PackedInt32Array(46, 45, 16, 14, 20), PackedInt32Array(47, 46, 20), PackedInt32Array(48, 49, 47, 20, 24), PackedInt32Array(50, 51, 52, 53, 54), PackedInt32Array(55, 56, 50, 54), PackedInt32Array(54, 53, 57)])
+vertices = PackedVector2Array(-257.578, -232.313, -52.8984, -223.742, -52.9922, -223.742, -277.422, -113.672, -262.523, -249.172, -262.109, -247.781, -259.063, -234.367, -41, 281, -653.273, 281, -663.68, -96.8594, -325.023, -61.5313, -41, 200.453, -46.0078, -223.383, -65.0391, -33.1406, 468, 207.797, 469.938, 571.594, 161.141, 559.391, 166.141, 211.531, 2141.54, 987.539, 1991.67, 996.406, 1981.69, 676, 2197.41, 41.6172, 1475.75, 135.227, 1478.74, 16.3438, 1910.25, 676, 1153.71, 127.789, 1180.91, 657.742, 1014.09, 202.656, 1183.9, 990.102, 1006.65, 991.898, 999, 769.094, 470.438, 154, 1142.71, -18.1094, 975.859, 154, -258.172, -234.32, 1176.22, -329, 1176.41, -328.992, 1117.42, -331.398, -23.8125, -242.539, -52.0625, -243.719, -51.9609, -243.719, 39.3438, -238.992, -23.8438, -242.258, 822, -654.063, 1386.19, -657.93, 1392.79, -324.219, 822, -406, -256.008, -310.953, -1179.85, -316.93, -1170.14, -973.031, 87.8438, -615.961, 91.1563, -406, 575, -979.961, 575, -617.953, 1113.41, -235.031, -242.93, -253.602)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10, 11), PackedInt32Array(0, 2, 12, 13, 3), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(22, 23, 21, 20, 24), PackedInt32Array(25, 22, 24, 26, 27), PackedInt32Array(26, 28, 29, 30, 27), PackedInt32Array(11, 10, 3, 13, 17), PackedInt32Array(31, 14, 17, 13), PackedInt32Array(13, 32, 25, 33, 31), PackedInt32Array(3, 6, 34, 0), PackedInt32Array(25, 27, 33), PackedInt32Array(35, 36, 37), PackedInt32Array(38, 39, 40), PackedInt32Array(41, 42, 38), PackedInt32Array(43, 44, 45, 35, 37, 46), PackedInt32Array(47, 48, 49, 50, 51), PackedInt32Array(49, 52, 53, 50), PackedInt32Array(47, 51, 46, 37, 54, 41, 38), PackedInt32Array(47, 38, 40, 55)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(585, -990, 585, -608, 98, -606, 101, -416, 753, -416, 812, -416, 812, -664, 1396, -668, 1403, -314, 1176, -319, 1127, -321, 1123, -225, 39, -229, -251, -244, -264, -301, -1190, -307, -1180, -983), PackedVector2Array(-674, -108, -663, 291, -31, 291, -31, 211, 156, 221, 151, 569, 480, 582, 478, 208, 480, 164, 971, 164, 1004, 206, 989, 769, 997, 1002, 1194, 1000, 1191, 668, 1910, 686, 1972, 686, 1982, 1007, 2151, 997, 2208, 32, 1469, 6, 1466, 125, 1163, 118, 1152, -28, -54, -43, -35, -233, -250, -242, -267, -300, -287, -118, -329, -72)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v351f"]
 size = Vector2(1152, 128)
@@ -506,9 +507,6 @@ position = Vector2(447, -313)
 _main_waypoint = NodePath("../PathrolPaths/Path1/Waypoint")
 wayPoints = NodePath("../PathrolPaths/Path1")
 
-[node name="Camera2D" type="Camera2D" parent="officer"]
-position = Vector2(-447, 313)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_qrqri")
 
@@ -563,6 +561,9 @@ position = Vector2(1304, -136)
 [node name="player" parent="." instance=ExtResource("10_25d05")]
 position = Vector2(-111, -23)
 
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(111, 23)
+
 [node name="PathrolPaths" type="Node2D" parent="."]
 
 [node name="Path1" type="Node2D" parent="PathrolPaths"]
@@ -580,13 +581,13 @@ position = Vector2(529, -649)
 actions = Array[ExtResource("12_2uubv")]([SubResource("Resource_fuvst")])
 
 [node name="Waypoint4" parent="PathrolPaths/Path1" instance=ExtResource("11_mii4f")]
-position = Vector2(542, -957)
+position = Vector2(516, -931)
 actions = Array[ExtResource("12_2uubv")]([SubResource("Resource_b7omw")])
 
 [node name="Waypoint5" parent="PathrolPaths/Path1" instance=ExtResource("11_mii4f")]
-position = Vector2(-1137, -969)
+position = Vector2(-1113, -905)
 actions = Array[ExtResource("12_2uubv")]([SubResource("Resource_qgjol")])
 
 [node name="Waypoint6" parent="PathrolPaths/Path1" instance=ExtResource("11_mii4f")]
-position = Vector2(-1132, -337)
+position = Vector2(-1123, -367)
 actions = Array[ExtResource("12_2uubv")]([SubResource("Resource_v351f")])

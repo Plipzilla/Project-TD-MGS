@@ -80,6 +80,9 @@ func enemy_patroling():
 func get_main_way_point() -> WayPoint:
 	return _main_waypoint
 
+func change_face_direction() -> void:
+	pass
+
 func process_navigation(speed: float, acceleration: float, friction: float, delta: float) -> void:
 	if navAgent.is_navigation_finished():
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)

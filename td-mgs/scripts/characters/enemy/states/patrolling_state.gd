@@ -28,7 +28,6 @@ func exit() -> void:
 
 ## What happens during the _process update in this State?
 func process(_delta: float) -> EnemyState:
-	_handle_waypoint_actions()
 	return null
 
 
@@ -36,6 +35,7 @@ func process(_delta: float) -> EnemyState:
 func physics(_delta: float) -> EnemyState:
 	if not _waypoint:
 		return next_state
+	_handle_waypoint_actions(_delta)
 	update_navigation()
 	actor.process_navigation(patrol_speed, patrol_acceleration, patrol_friction, _delta)
 	return null
@@ -57,7 +57,9 @@ func get_all_current_waypoints():
 			pass
 	pass
 
-func _handle_waypoint_actions():
+func _handle_waypoint_actions(_delta: float):
+	if !actor.navAgent.is_navigation_finished():
+		return
 	if _action_index < 0 or _action_index >= len(_waypoint.actions):
 		return
 	print(len(_waypoint.actions), " ", _action_index)
@@ -70,5 +72,6 @@ func _handle_waypoint_actions():
 				print(action.go_to_dest," ", go_to)
 				_waypoint = go_to
 				_action_index = 0
+				return
 			_action_index += 1
 	return
