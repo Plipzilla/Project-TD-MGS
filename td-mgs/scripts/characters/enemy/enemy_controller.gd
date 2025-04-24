@@ -1,6 +1,9 @@
 class_name EnemyController extends CharacterBody2D
 
 @export var _main_waypoint: WayPoint
+@export var turn_speed: float = 3.0
+@export var angle_threshold: float = 0.05
+@export var wayPoints: Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: EnemyStateMachine = $EnemyStateMachine
@@ -11,21 +14,16 @@ var angle_cone_of_vision: float = deg_to_rad(45.0)
 var max_view_distance: float = 800.0
 var angle_between_rays: float = deg_to_rad(5.0)
 
-@export var wayPoints: Node2D
+var target_angle: float = 0.0
+var is_turning: bool = false
 
 func _ready():
 	state_machine.initialize(self)
 	generate_raycasts()
 
 func _physics_process(_delta):
-	# var dir = Vector3()
-	# navAgent.target_position = get_global_mouse_position()
-	# dir = navAgent.get_next_path_position() - global_position
-	# dir = dir.normalized()
-	# velocity = velocity.lerp(dir * speed, accel * delta)
-	move_and_slide()
-	# rotation = dir.angle()
-
+	if is_turning:
+		process_turning(_delta)
 	for ray in get_children():
 		if ray is RayCast2D:
 			ray.force_raycast_update()
@@ -35,6 +33,7 @@ func _physics_process(_delta):
 			else:
 				# print("No player detected.")
 				pass
+	move_and_slide()
 
 func update_animation(state: String) -> void:
 	animation_player.play(state)
@@ -75,6 +74,29 @@ func process_navigation(speed: float, acceleration: float, friction: float, delt
 func navigate(dest_position: Vector2):
 	navAgent.target_position = dest_position
 
-
 func turn_to_look_at(angle: float):
-	rotation = angle
+	target_angle = wrapf(angle, -PI, PI)
+	is_turning = true
+
+func process_turning(delta):
+	var current_angle = wrapf(rotation, -PI, PI)
+	var angle_diff = shortest_angle_distance(current_angle, target_angle)
+	if abs(angle_diff) < angle_threshold:
+		rotation = target_angle
+		is_turning = false
+		return
+		
+	var step = turn_speed * delta
+	
+	if abs(step) > abs(angle_diff):
+		step = angle_diff
+	else:
+		step = sign(angle_diff) * step
+	
+	rotation = wrapf(current_angle + step, -PI, PI)
+
+# Helper function to find shortest angular distance
+func shortest_angle_distance(from: float, to: float) -> float:
+	var max_angle = PI * 2
+	var difference = fmod(to - from, max_angle)
+	return fmod(2 * difference, max_angle) - difference

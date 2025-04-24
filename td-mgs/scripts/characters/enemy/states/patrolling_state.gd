@@ -63,7 +63,6 @@ func _handle_waypoint_actions(_delta: float):
 		return
 	if _action_index < 0 or _action_index >= len(_waypoint.actions):
 		return
-	print(len(_waypoint.actions), " ", _action_index)
 	var action = _waypoint.actions[_action_index]
 
 	match action.op:
@@ -73,7 +72,6 @@ func _handle_waypoint_actions(_delta: float):
 		WayPoint.PatrolOpcode.GOTO:
 			if action.go_to_dest != "":
 				var go_to = path.get(action.go_to_dest)
-				print(action.go_to_dest, " ", go_to)
 				_waypoint = go_to
 				_action_index = 0
 				return
