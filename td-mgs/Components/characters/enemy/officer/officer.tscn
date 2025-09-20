@@ -66,6 +66,8 @@ _data = {
 
 [node name="officer" type="CharacterBody2D"]
 script = ExtResource("1_ytvgn")
+turn_speed = null
+angle_threshold = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
