@@ -44,13 +44,18 @@ func initialize( _enemy : EnemyController ) -> void:
 
 
 func change_state( new_state : EnemyState ) -> void:
-	
+
 	if new_state == null || new_state == current_state:
 		return
-	
+
+	var prev_state_name = current_state.get_script().get_global_name() if current_state else "null"
+	var new_state_name = new_state.get_script().get_global_name()
+
+	print("Enemy State Transition: ", prev_state_name, " -> ", new_state_name)
+
 	if current_state:
 		current_state.exit()
-	
+
 	prev_state = current_state
 	current_state = new_state
 	current_state.enter()

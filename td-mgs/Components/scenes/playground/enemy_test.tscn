@@ -14,9 +14,9 @@
 [ext_resource type="Script" uid="uid://6yla2hmj1qh3" path="res://scripts/core/waypoint/waypoint_operation.gd" id="12_2uubv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qrqri"]
-vertices = PackedVector2Array(-257.578, -232.313, -52.8984, -223.742, -52.9922, -223.742, -277.422, -113.672, -262.523, -249.172, -262.109, -247.781, -259.063, -234.367, -41, 281, -653.273, 281, -663.68, -96.8594, -325.023, -61.5313, -41, 200.453, -46.0078, -223.383, -65.0391, -33.1406, 468, 207.797, 469.938, 571.594, 161.141, 559.391, 166.141, 211.531, 2141.54, 987.539, 1991.67, 996.406, 1981.69, 676, 2197.41, 41.6172, 1475.75, 135.227, 1478.74, 16.3438, 1910.25, 676, 1153.71, 127.789, 1180.91, 657.742, 1014.09, 202.656, 1183.9, 990.102, 1006.65, 991.898, 999, 769.094, 470.438, 154, 1142.71, -18.1094, 975.859, 154, -258.172, -234.32, 1176.22, -329, 1176.41, -328.992, 1117.42, -331.398, -23.8125, -242.539, -52.0625, -243.719, -51.9609, -243.719, 39.3438, -238.992, -23.8438, -242.258, 822, -654.063, 1386.19, -657.93, 1392.79, -324.219, 822, -406, -256.008, -310.953, -1179.85, -316.93, -1170.14, -973.031, 87.8438, -615.961, 91.1563, -406, 575, -979.961, 575, -617.953, 1113.41, -235.031, -242.93, -253.602)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10, 11), PackedInt32Array(0, 2, 12, 13, 3), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(22, 23, 21, 20, 24), PackedInt32Array(25, 22, 24, 26, 27), PackedInt32Array(26, 28, 29, 30, 27), PackedInt32Array(11, 10, 3, 13, 17), PackedInt32Array(31, 14, 17, 13), PackedInt32Array(13, 32, 25, 33, 31), PackedInt32Array(3, 6, 34, 0), PackedInt32Array(25, 27, 33), PackedInt32Array(35, 36, 37), PackedInt32Array(38, 39, 40), PackedInt32Array(41, 42, 38), PackedInt32Array(43, 44, 45, 35, 37, 46), PackedInt32Array(47, 48, 49, 50, 51), PackedInt32Array(49, 52, 53, 50), PackedInt32Array(47, 51, 46, 37, 54, 41, 38), PackedInt32Array(47, 38, 40, 55)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(585, -990, 585, -608, 98, -606, 101, -416, 753, -416, 812, -416, 812, -664, 1396, -668, 1403, -314, 1176, -319, 1127, -321, 1123, -225, 39, -229, -251, -244, -264, -301, -1190, -307, -1180, -983), PackedVector2Array(-674, -108, -663, 291, -31, 291, -31, 211, 156, 221, 151, 569, 480, 582, 478, 208, 480, 164, 971, 164, 1004, 206, 989, 769, 997, 1002, 1194, 1000, 1191, 668, 1910, 686, 1972, 686, 1982, 1007, 2151, 997, 2208, 32, 1469, 6, 1466, 125, 1163, 118, 1152, -28, -54, -43, -35, -233, -250, -242, -267, -300, -287, -118, -329, -72)])
+vertices = PackedVector2Array(-201.09375, -203, -22, -196.46875, -67.09375, -33.15625, -278.47656, -112.5, -239.42969, -203, -41, 281, -653.27344, 281, -663.6797, -96.859375, -325.02344, -61.53125, -41, 200.45313, 467.96875, 202.67188, 469.9375, 571.59375, 161.14063, 559.3906, 166.14063, 211.53125, 2141.539, 987.53906, 1991.6719, 996.40625, 1981.6875, 676, 2197.4063, 41.617188, 1475.75, 135.22656, 1478.7422, 16.34375, 1910.25, 676, 1153.7109, 127.78906, 1180.9063, 657.7422, 1014.1406, 200.85938, 1183.8984, 990.10156, 1006.64844, 991.89844, 999, 769.09375, 1142.7109, -18.109375, 507.89844, 176.04688, 968.0469, 168.95313, 822, -654.0625, 1386.1875, -657.9297, 1392.7891, -324.21875, 1176.2188, -329, 822, -406, 1176.2109, -328.9922, 1117.4219, -331.39844, -255.77344, -310.95313, -1179.8516, -316.9297, -1170.1406, -973.03125, 87.84375, -615.96094, 91.15625, -406, 575, -979.96094, 575, -617.9531, 1113.3984, -234.86719, -48.78125, -220, -239.70313, -229.59375)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 17, 16, 20), PackedInt32Array(21, 18, 20, 22, 23), PackedInt32Array(22, 24, 25, 26, 23), PackedInt32Array(9, 8, 3, 2), PackedInt32Array(9, 2, 27, 21, 28), PackedInt32Array(21, 23, 29), PackedInt32Array(28, 10, 13, 9), PackedInt32Array(21, 29, 28), PackedInt32Array(30, 31, 32, 33, 34), PackedInt32Array(34, 33, 35, 36), PackedInt32Array(37, 38, 39, 40, 41), PackedInt32Array(39, 42, 43, 40), PackedInt32Array(37, 41, 34, 36, 44, 45, 46)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(585, -990, 585, -608, 98, -606, 101, -416, 753, -416, 812, -416, 812, -664, 1396, -668, 1403, -314, 1176, -319, 1127, -321, 1123, -225, -49, -210, -248, -220, -264, -301, -1190, -307, -1180, -983), PackedVector2Array(-674, -108, -663, 291, -31, 291, -31, 211, 156, 221, 151, 569, 480, 582, 478, 208, 511, 186, 965, 179, 1004, 206, 989, 769, 997, 1002, 1194, 1000, 1191, 668, 1910, 686, 1972, 686, 1982, 1007, 2151, 997, 2208, 32, 1469, 6, 1466, 125, 1163, 118, 1152, -28, -54, -43, -9, -206, -201, -213, -246, -213, -287, -118, -329, -72)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v351f"]
 size = Vector2(1152, 128)
@@ -460,16 +460,12 @@ sources/0 = SubResource("TileSetAtlasSource_wtikj")
 [sub_resource type="Resource" id="Resource_2uubv"]
 script = ExtResource("12_2uubv")
 op = 2
-direction = 0
 go_to_dest = "Waypoint2"
-duration = 0.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
 [sub_resource type="Resource" id="Resource_rgv87"]
 script = ExtResource("12_2uubv")
 op = 3
-direction = 0
-go_to_dest = ""
 duration = 2.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
@@ -477,15 +473,11 @@ metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 script = ExtResource("12_2uubv")
 op = 1
 direction = 1
-go_to_dest = ""
-duration = 0.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
 [sub_resource type="Resource" id="Resource_6ykpj"]
 script = ExtResource("12_2uubv")
 op = 3
-direction = 0
-go_to_dest = ""
 duration = 2.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
@@ -493,56 +485,40 @@ metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 script = ExtResource("12_2uubv")
 op = 1
 direction = 2
-go_to_dest = ""
-duration = 0.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
 [sub_resource type="Resource" id="Resource_f65hw"]
 script = ExtResource("12_2uubv")
 op = 3
-direction = 0
-go_to_dest = ""
 duration = 2.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
 [sub_resource type="Resource" id="Resource_5tquh"]
 script = ExtResource("12_2uubv")
 op = 2
-direction = 0
 go_to_dest = "Waypoint3"
-duration = 0.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
 [sub_resource type="Resource" id="Resource_fuvst"]
 script = ExtResource("12_2uubv")
 op = 2
-direction = 0
 go_to_dest = "Waypoint4"
-duration = 0.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
 [sub_resource type="Resource" id="Resource_b7omw"]
 script = ExtResource("12_2uubv")
 op = 2
-direction = 0
 go_to_dest = "Waypoint5"
-duration = 0.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
 [sub_resource type="Resource" id="Resource_qgjol"]
 script = ExtResource("12_2uubv")
 op = 2
-direction = 0
 go_to_dest = "Waypoint6"
-duration = 0.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
 [sub_resource type="Resource" id="Resource_v351f"]
 script = ExtResource("12_2uubv")
-op = 0
-direction = 0
-go_to_dest = ""
-duration = 0.0
 metadata/_custom_type_script = "uid://6yla2hmj1qh3"
 
 [node name="EnemyTest" type="Node2D"]

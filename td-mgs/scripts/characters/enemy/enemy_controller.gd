@@ -9,6 +9,7 @@ class_name EnemyController extends CharacterBody2D
 @onready var state_machine: EnemyStateMachine = $EnemyStateMachine
 @onready var patrolling: PatrollingState = $EnemyStateMachine/patrolling
 @onready var navAgent: NavigationAgent2D = $NavigationAgent2D
+@onready var chasing: ChasingState = $EnemyStateMachine/chasing
 
 var angle_cone_of_vision: float = deg_to_rad(45.0)
 var max_view_distance: float = 800.0
@@ -28,7 +29,7 @@ func _physics_process(_delta):
 		if ray is RayCast2D:
 			ray.force_raycast_update()
 			if ray.is_colliding() and ray.get_collider() is PlayerCharacter:
-				# print("Player detected!")
+				state_machine.change_state(chasing)
 				pass
 			else:
 				# print("No player detected.")

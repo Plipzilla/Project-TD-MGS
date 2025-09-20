@@ -1,7 +1,7 @@
 class_name PatrollingState extends EnemyState
 
 @export var anim_name: String = "walk"
-@export var patrol_speed: float = 100.0
+@export var patrol_speed: float = 200.0
 @export var patrol_acceleration: float = 100.0
 @export var patrol_friction: float = 900.0
 
