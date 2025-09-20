@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://chxbwfgxb2ca2"]
+[gd_scene load_steps=15 format=3 uid="uid://chxbwfgxb2ca2"]
 
 [ext_resource type="Script" uid="uid://7qb8pt6owug6" path="res://scripts/characters/enemy/enemy_controller.gd" id="1_ytvgn"]
 [ext_resource type="Texture2D" uid="uid://bgahl7y1jmf8c" path="res://Assets/officer/officer_walk_strip.png" id="2_1jmpa"]
 [ext_resource type="Script" uid="uid://dgqd0kjfmt8l4" path="res://scripts/characters/enemy/states/chasing_state.gd" id="6_br6yd"]
 [ext_resource type="Script" uid="uid://diugiphqko1gn" path="res://scripts/characters/enemy/states/searching_state.gd" id="7_q7km5"]
 [ext_resource type="Script" uid="uid://bhaldq8mhq6xx" path="res://scripts/characters/enemy/states/returning_state.gd" id="8_q7km5"]
+[ext_resource type="Script" uid="uid://b46qbwkta76cq" path="res://scripts/characters/enemy/states/attack_state.gd" id="9_v6ddx"]
 [ext_resource type="Script" uid="uid://tya0nugjeymb" path="res://scripts/characters/enemy/enemy_state_machine.gd" id="48_w5u2j"]
 [ext_resource type="Script" uid="uid://bnu22dp52e2q3" path="res://scripts/characters/enemy/states/idle_state.gd" id="49_h085r"]
 [ext_resource type="Script" uid="uid://ca8oulfv1565w" path="res://scripts/characters/enemy/states/patrolling_state.gd" id="50_x3lcr"]
@@ -67,8 +68,6 @@ _data = {
 
 [node name="officer" type="CharacterBody2D"]
 script = ExtResource("1_ytvgn")
-turn_speed = null
-angle_threshold = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
@@ -106,3 +105,6 @@ metadata/_custom_type_script = "uid://diugiphqko1gn"
 
 [node name="returning" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("8_q7km5")
+
+[node name="attacking" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("9_v6ddx")

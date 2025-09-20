@@ -12,6 +12,7 @@ class_name EnemyController extends CharacterBody2D
 @onready var searching: SearchingState = $EnemyStateMachine/searching
 @onready var returning: ReturningState = $EnemyStateMachine/returning
 @onready var idle: IdleState = $EnemyStateMachine/idle
+@onready var attacking: AttackState = $EnemyStateMachine/attacking
 @onready var navAgent: NavigationAgent2D = $NavigationAgent2D
 
 var angle_cone_of_vision: float = deg_to_rad(45.0)
@@ -27,12 +28,13 @@ func _ready():
 	generate_raycasts()
 
 func setup_state_connections():
-	print("State references - patrolling: ", patrolling, " chasing: ", chasing, " searching: ", searching, " returning: ", returning, " idle: ", idle)
+	print("State references - patrolling: ", patrolling, " chasing: ", chasing, " searching: ", searching, " returning: ", returning, " idle: ", idle, " attacking: ", attacking)
 
-	if chasing and searching:
+	if chasing and searching and attacking:
 		chasing.search_state = searching
+		chasing.attack_state = attacking
 	else:
-		print("Cannot connect chasing->searching: chasing=", chasing, " searching=", searching)
+		print("Cannot connect chasing states: chasing=", chasing, " searching=", searching, " attacking=", attacking)
 
 	if searching and returning:
 		searching.return_state = returning
@@ -53,6 +55,12 @@ func setup_state_connections():
 		idle.after_idle_state = patrolling
 	else:
 		print("Cannot connect idle->patrolling: idle=", idle, " patrolling=", patrolling)
+
+	if attacking and chasing and searching:
+		attacking.chase_state = chasing
+		attacking.search_state = searching
+	else:
+		print("Cannot connect attacking states: attacking=", attacking, " chasing=", chasing, " searching=", searching)
 
 func _physics_process(_delta):
 	if is_turning:
