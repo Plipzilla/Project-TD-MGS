@@ -1,0 +1,110 @@
+[gd_scene load_steps=15 format=3 uid="uid://chxbwfgxb2ca2"]
+
+[ext_resource type="Script" uid="uid://7qb8pt6owug6" path="res://scripts/characters/enemy/enemy_controller.gd" id="1_ytvgn"]
+[ext_resource type="Texture2D" uid="uid://bgahl7y1jmf8c" path="res://Assets/officer/officer_walk_strip.png" id="2_1jmpa"]
+[ext_resource type="Script" uid="uid://dgqd0kjfmt8l4" path="res://scripts/characters/enemy/states/chasing_state.gd" id="6_br6yd"]
+[ext_resource type="Script" uid="uid://diugiphqko1gn" path="res://scripts/characters/enemy/states/searching_state.gd" id="7_q7km5"]
+[ext_resource type="Script" uid="uid://bhaldq8mhq6xx" path="res://scripts/characters/enemy/states/returning_state.gd" id="8_q7km5"]
+[ext_resource type="Script" uid="uid://b46qbwkta76cq" path="res://scripts/characters/enemy/states/attack_state.gd" id="9_v6ddx"]
+[ext_resource type="Script" uid="uid://tya0nugjeymb" path="res://scripts/characters/enemy/enemy_state_machine.gd" id="48_w5u2j"]
+[ext_resource type="Script" uid="uid://bnu22dp52e2q3" path="res://scripts/characters/enemy/states/idle_state.gd" id="49_h085r"]
+[ext_resource type="Script" uid="uid://ca8oulfv1565w" path="res://scripts/characters/enemy/states/patrolling_state.gd" id="50_x3lcr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvgw4"]
+radius = 98.2497
+
+[sub_resource type="Animation" id="Animation_br6yd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1jmpa"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qqbjv"]
+resource_name = "walking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.00999999, 0.1, 0.233333, 0.366667, 0.5, 0.666667, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q7km5"]
+_data = {
+&"RESET": SubResource("Animation_br6yd"),
+&"idle": SubResource("Animation_1jmpa"),
+&"walk": SubResource("Animation_qqbjv")
+}
+
+[node name="officer" type="CharacterBody2D"]
+script = ExtResource("1_ytvgn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_1jmpa")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mvgw4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_q7km5")
+}
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="EnemyStateMachine" type="Node" parent="."]
+script = ExtResource("48_w5u2j")
+
+[node name="patrolling" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("50_x3lcr")
+next_state = NodePath("../idle")
+
+[node name="idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
+script = ExtResource("49_h085r")
+after_idle_state = NodePath("../patrolling")
+
+[node name="chasing" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("6_br6yd")
+metadata/_custom_type_script = "uid://dgqd0kjfmt8l4"
+
+[node name="searching" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("7_q7km5")
+metadata/_custom_type_script = "uid://diugiphqko1gn"
+
+[node name="returning" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("8_q7km5")
+
+[node name="attacking" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("9_v6ddx")
