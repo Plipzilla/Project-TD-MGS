@@ -8,8 +8,11 @@ class_name EnemyController extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: EnemyStateMachine = $EnemyStateMachine
 @onready var patrolling: PatrollingState = $EnemyStateMachine/patrolling
-@onready var navAgent: NavigationAgent2D = $NavigationAgent2D
 @onready var chasing: ChasingState = $EnemyStateMachine/chasing
+@onready var searching: SearchingState = $EnemyStateMachine/searching
+@onready var returning: ReturningState = $EnemyStateMachine/returning
+@onready var idle: IdleState = $EnemyStateMachine/idle
+@onready var navAgent: NavigationAgent2D = $NavigationAgent2D
 
 var angle_cone_of_vision: float = deg_to_rad(45.0)
 var max_view_distance: float = 800.0
@@ -20,7 +23,36 @@ var is_turning: bool = false
 
 func _ready():
 	state_machine.initialize(self)
+	setup_state_connections()
 	generate_raycasts()
+
+func setup_state_connections():
+	print("State references - patrolling: ", patrolling, " chasing: ", chasing, " searching: ", searching, " returning: ", returning, " idle: ", idle)
+
+	if chasing and searching:
+		chasing.search_state = searching
+	else:
+		print("Cannot connect chasing->searching: chasing=", chasing, " searching=", searching)
+
+	if searching and returning:
+		searching.return_state = returning
+	else:
+		print("Cannot connect searching->returning: searching=", searching, " returning=", returning)
+
+	if returning and patrolling:
+		returning.patrol_state = patrolling
+	else:
+		print("Cannot connect returning->patrolling: returning=", returning, " patrolling=", patrolling)
+
+	if patrolling and idle:
+		patrolling.next_state = idle
+	else:
+		print("Cannot connect patrolling->idle: patrolling=", patrolling, " idle=", idle)
+
+	if idle and patrolling:
+		idle.after_idle_state = patrolling
+	else:
+		print("Cannot connect idle->patrolling: idle=", idle, " patrolling=", patrolling)
 
 func _physics_process(_delta):
 	if is_turning:

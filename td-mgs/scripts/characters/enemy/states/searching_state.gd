@@ -41,7 +41,9 @@ func process(_delta: float) -> EnemyState:
 		return return_state
 
 	if can_see_player():
-		return state_machine.states.filter(func(s): return s is ChasingState)[0] if state_machine.states.any(func(s): return s is ChasingState) else null
+		var chasing_state = find_chasing_state()
+		if chasing_state:
+			return chasing_state
 
 	return null
 
@@ -93,3 +95,9 @@ func can_see_player() -> bool:
 
 func get_random_look_angle() -> float:
 	return randf() * 2.0 * PI
+
+func find_chasing_state() -> EnemyState:
+	for state in state_machine.states:
+		if state is ChasingState:
+			return state
+	return null

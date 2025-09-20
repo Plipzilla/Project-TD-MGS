@@ -8,7 +8,7 @@ class_name ChasingState extends EnemyState
 @export_category("AI")
 @export var chase_timeout: float = 5.0
 @export var min_chase_distance: float = 50.0
-@export var return_state: EnemyState
+@export var search_state: EnemyState
 
 var target_player: PlayerCharacter = null
 var chase_timer: float = 0.0
@@ -29,7 +29,7 @@ func process(_delta: float) -> EnemyState:
 	chase_timer += _delta
 
 	if chase_timer >= chase_timeout:
-		return return_state
+		return search_state
 
 	return null
 
@@ -37,7 +37,7 @@ func physics(_delta: float) -> EnemyState:
 	if not target_player:
 		find_player()
 		if not target_player:
-			return return_state
+			return search_state
 
 	if can_see_player():
 		last_known_position = target_player.global_position
@@ -55,7 +55,7 @@ func physics(_delta: float) -> EnemyState:
 	actor.process_navigation(chase_speed, chase_acceleration, chase_friction, _delta)
 
 	if actor.navAgent.is_navigation_finished() and actor.global_position.distance_to(last_known_position) < 30.0:
-		return return_state
+		return search_state
 
 	return null
 
